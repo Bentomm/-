@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JIMGO 파트너 점주 모집 — 카페·편의점 유휴 공간을 수익으로. 얼리버드 입점 수수료 6개월 무료.">
+<meta property="og:title" content="짐보관 파트너 모집 | JIMGO">
+<meta property="og:description" content="우리 카페 빈 공간이 수익이 됩니다. 추가 인건비 0원 · 일 평균 15분 · 앱 하나로 끝">
+<title>짐보관 파트너 모집 | JIMGO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --em:#00C97A;--em-dark:#00A362;--em-deep:#007A4A;
+  --em-bg:#E6FBF2;--em-bg2:#CCF7E4;
+  --dark:#0A1F14;--dark2:#1A2E22;
+  --white:#FFFFFF;--gray:#F5F5F5;
+  --text:#1A2E22;--muted:#666666;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,31,20,0.97);backdrop-filter:blur(8px);border-bottom:0.5px solid rgba(0,201,122,0.2);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.06em;color:var(--em)}
+.nav-logo span{color:rgba(255,255,255,0.45);font-size:13px;font-family:'Noto Sans KR';font-weight:400;margin-left:10px;letter-spacing:0}
+.nav-cta{background:var(--em);color:var(--dark);font-size:13px;font-weight:700;padding:8px 18px;border-radius:6px;transition:opacity 0.15s}
+.nav-cta:hover{opacity:0.85}
+
+/* HERO */
+.hero{background:var(--dark);padding:140px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,201,122,0.12) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,201,122,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(0,201,122,0.15);border:0.5px solid rgba(0,201,122,0.4);color:var(--em);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:28px;animation:fadeUp 0.6s ease both}
+.hero h1{font-size:clamp(30px,5vw,52px);font-weight:900;line-height:1.2;color:var(--white);letter-spacing:-0.02em;margin-bottom:16px;animation:fadeUp 0.6s 0.1s ease both}
+.hero h1 em{font-style:normal;color:var(--em)}
+.hero-sub{font-size:clamp(14px,2vw,18px);color:rgba(255,255,255,0.55);margin-bottom:40px;max-width:480px;animation:fadeUp 0.6s 0.2s ease both}
+.hero-stats{display:flex;border-top:0.5px solid rgba(0,201,122,0.2);padding-top:32px;margin-bottom:40px;animation:fadeUp 0.6s 0.3s ease both}
+.hero-stat{flex:1;padding-right:24px;margin-right:24px;border-right:0.5px solid rgba(0,201,122,0.15)}
+.hero-stat:last-child{border-right:none;padding-right:0;margin-right:0}
+.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,4vw,38px);color:var(--em);line-height:1;margin-bottom:4px}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.4}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp 0.6s 0.4s ease both}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;background:var(--em);color:var(--dark);font-size:15px;font-weight:900;padding:16px 32px;border-radius:8px;transition:background 0.15s,transform 0.1s;white-space:nowrap}
+.btn-primary:hover{background:var(--em-dark);transform:translateY(-1px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:6px;background:transparent;border:0.5px solid rgba(0,201,122,0.4);color:rgba(255,255,255,0.7);font-size:15px;font-weight:500;padding:16px 28px;border-radius:8px;transition:border-color 0.15s,color 0.15s}
+.btn-secondary:hover{border-color:var(--em);color:var(--em)}
+
+/* SECTION COMMON */
+.section-label{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--em);margin-bottom:12px}
+.section-title{font-size:clamp(22px,3.5vw,32px);font-weight:900;line-height:1.25;letter-spacing:-0.02em;margin-bottom:12px}
+.section-desc{font-size:15px;color:var(--muted);line-height:1.7;max-width:520px;margin-bottom:48px}
+
+/* BENEFITS */
+.benefits{background:var(--white)}
+.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.benefit-card{background:var(--white);border:0.5px solid var(--border);border-top:3px solid var(--em);border-radius:14px;padding:24px;transition:transform 0.2s,box-shadow 0.2s}
+.benefit-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,201,122,0.1)}
+.benefit-icon{width:40px;height:40px;border-radius:10px;background:var(--em-bg);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.benefit-icon i{font-size:20px;color:var(--em-deep)}
+.benefit-card h3{font-size:15px;font-weight:700;margin-bottom:8px}
+.benefit-card p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* HOW */
+.how{background:var(--gray)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.step{background:var(--white);border-radius:14px;padding:28px 24px;border:0.5px solid var(--border)}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:var(--em-bg2);margin-bottom:12px}
+.step h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.step p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* REVIEWS */
+.reviews{background:var(--white)}
+.reviews-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.pilot-badge{font-size:12px;color:var(--muted);background:var(--em-bg);border:0.5px solid var(--em-bg2);padding:4px 12px;border-radius:20px}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.review-card{background:var(--white);border:0.5px solid var(--border);border-left:3px solid var(--em);border-radius:14px;padding:20px}
+.review-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.review-av{width:38px;height:38px;border-radius:50%;background:var(--em-bg);color:var(--em-deep);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.review-meta h4{font-size:13px;font-weight:700}
+.review-meta span{font-size:11px;color:var(--muted)}
+.stars{margin-left:auto;color:var(--em);font-size:13px;letter-spacing:1px;flex-shrink:0}
+.review-body{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.review-body strong{color:var(--text);font-weight:700}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:500;background:var(--em-bg);color:var(--em-deep);padding:3px 10px;border-radius:20px}
+
+/* EARLYBIRD */
+.earlybird{background:var(--dark);position:relative;overflow:hidden}
+.earlybird::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,201,122,0.1) 0%,transparent 70%);pointer-events:none}
+.eb-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.eb-badge-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(0,201,122,0.15);border:0.5px solid rgba(0,201,122,0.4);color:var(--em);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:20px}
+.eb-title{font-size:clamp(24px,3.5vw,36px);font-weight:900;color:var(--white);line-height:1.2;letter-spacing:-0.02em;margin-bottom:12px}
+.eb-title em{font-style:normal;color:var(--em)}
+.eb-desc{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:28px}
+.price-row{display:flex;align-items:flex-end;gap:12px;margin-bottom:6px}
+.price-original{font-size:16px;color:rgba(255,255,255,0.3);text-decoration:line-through}
+.price-current{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--em);line-height:1}
+.price-unit{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:6px}
+.price-note{font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:28px;line-height:1.6}
+.perks{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.perk{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8)}
+.perk i{font-size:16px;color:var(--em);flex-shrink:0;margin-top:1px}
+.counter-box{display:flex;align-items:center;gap:10px;background:rgba(0,201,122,0.08);border:0.5px solid rgba(0,201,122,0.3);border-radius:10px;padding:12px 16px;margin-bottom:24px}
+.counter-box i{font-size:18px;color:var(--em);flex-shrink:0}
+.counter-text{font-size:13px;color:rgba(255,255,255,0.6);flex:1}
+.counter-num{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--em)}
+.counter-total{font-size:13px;color:rgba(255,255,255,0.35);margin-left:2px}
+.cta-main{display:block;width:100%;text-align:center;background:var(--em);color:var(--dark);font-size:16px;font-weight:900;padding:18px;border-radius:10px;transition:background 0.15s;margin-bottom:10px}
+.cta-main:hover{background:var(--em-dark)}
+.cta-note{text-align:center;font-size:11px;color:rgba(255,255,255,0.3)}
+.eb-perks-card{background:rgba(255,255,255,0.04);border:0.5px solid rgba(0,201,122,0.2);border-radius:16px;padding:28px}
+.eb-perks-card h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:20px}
+.eb-perk-item{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:0.5px solid rgba(255,255,255,0.06)}
+.eb-perk-item:last-child{border-bottom:none;padding-bottom:0}
+.eb-perk-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--em);line-height:1;flex-shrink:0;width:24px}
+.eb-perk-info h4{font-size:13px;font-weight:700;color:var(--white);margin-bottom:3px}
+.eb-perk-info p{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.5}
+
+/* FAQ */
+.faq{background:var(--gray)}
+.faq-list{max-width:700px}
+.faq-item{border-bottom:0.5px solid rgba(0,0,0,0.1);cursor:pointer}
+.faq-item:first-child{border-top:0.5px solid rgba(0,0,0,0.1)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
+.faq-q-text{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700}
+.faq-q-text i{font-size:8px;color:var(--em);flex-shrink:0}
+.faq-chevron{font-size:18px;color:var(--muted);transition:transform 0.25s;flex-shrink:0}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.75;padding:0 0 20px 22px;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* FOOTER CTA */
+.footer-cta{background:var(--em-bg);border-top:2px solid var(--em-bg2);padding:80px 0;text-align:center}
+.footer-cta h2{font-size:clamp(22px,3vw,30px);font-weight:900;margin-bottom:12px;letter-spacing:-0.02em}
+.footer-cta p{font-size:14px;color:var(--em-deep);margin-bottom:32px;line-height:1.7}
+.footer-cta .btn-primary{display:inline-flex;margin:0 auto}
+
+/* FOOTER */
+footer{background:var(--dark2);padding:32px 24px;text-align:center}
+footer p{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.8}
+footer strong{color:var(--em);font-weight:700}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.5s ease,transform 0.5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  section{padding:60px 0}
+  .hero{padding:110px 0 60px}
+  .eb-inner{grid-template-columns:1fr;gap:40px}
+  .nav-logo span{display:none}
+}
+@media(max-width:480px){
+  .hero-stats{gap:0}
+  .hero-stat{padding-right:12px;margin-right:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">JIMGO <span>파트너 모집</span></div>
+  <a class="nav-cta" href="#earlybird">얼리버드 신청 →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-tag">
+      <i class="ti ti-circle-filled" style="font-size:8px"></i>
+      점주 파트너 모집 중
+    </div>
+    <h1>우리 카페 빈 공간이<br><em>수익이 됩니다.</em></h1>
+    <p class="hero-sub">짐보관 허브 파트너로 참여하세요.<br>별도 운영 없이 앱 하나로 끝.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">0원</div>
+        <div class="hero-stat-label">추가 인건비</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">15분</div>
+        <div class="hero-stat-label">일 평균 업무</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">투명 정산</div>
+      </div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#earlybird" class="btn-primary">
+        지금 얼리버드 신청하기 <i class="ti ti-arrow-right"></i>
+      </a>
+      <a href="#how" class="btn-secondary">
+        어떻게 작동하나요? <i class="ti ti-chevron-down"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label"><i class="ti ti-bolt"></i> 왜 Jimgo인가</div>
+      <h2 class="section-title">점주님께 좋은 이유,<br>딱 4가지</h2>
+      <p class="section-desc">기존 운영 방식을 바꾸지 않아도 됩니다. 공간만 있으면 됩니다.</p>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon"><i class="ti ti-coin"></i></div>
+        <h3>추가 수익 창출</h3>
+        <p>보관 건당 수익 배분. 유휴 공간이 매달 일정한 수익으로 자동 전환됩니다.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon"><i class="ti ti-device-mobile"></i></div>
+        <h3>앱 하나로 끝</h3>
+        <p>예약 확인·수령 확인 모두 앱에서. 별도 교육 없이 직원 누구나 바로 시작.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon"><i class="ti ti-users"></i></div>
+        <h3>신규 고객 유입</h3>
+        <p>짐 찾으러 온 여행자가 자연스럽게 매장을 방문합니다. 매출 상승 효과.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon"><i class="ti ti-shield-check"></i></div>
+        <h3>보험 적용</h3>
+        <p>분실·파손 모두 플랫폼 보험으로 보장. 점주님께 귀책 없이 운영 가능.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label"><i class="ti ti-route"></i> 운영 방식</div>
+      <h2 class="section-title">딱 3단계로<br>끝납니다</h2>
+      <p class="section-desc">복잡한 설치나 교육 없이, 앱 하나로 모든 과정이 자동화됩니다.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>앱 파트너 등록</h3>
+        <p>보관 공간 규모를 입력하고 심사를 받으세요. 최소 0.5평이면 충분합니다. 담당자가 직접 방문해 배치를 설계해 드립니다.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>예약 알림 수신</h3>
+        <p>여행자가 예약하면 앱 푸시 알림이 도착합니다. QR 스캔으로 체크인·체크아웃 처리. 하루 평균 15분이면 충분합니다.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>월 자동 정산</h3>
+        <p>매월 1회 지정 계좌로 자동 정산. 앱 대시보드에서 건별 수익 내역을 실시간으로 확인하실 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS (MOFU) -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-top reveal">
+      <div>
+        <div class="section-label"><i class="ti ti-message-circle"></i> 파트너 후기</div>
+        <h2 class="section-title">실제 사장님들의<br>이야기</h2>
+      </div>
+      <span class="pilot-badge">실제 파일럿 1·2기 참여 점주</span>
+    </div>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="review-top">
+          <div class="review-av">박</div>
+          <div class="review-meta">
+            <h4>박○○ 사장님</h4>
+            <span>서울 합정 카페 · 파일럿 1기</span>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="review-body">처음엔 카운터가 바빠질까 걱정했는데, <strong>앱에서 QR 찍으면 끝</strong>이라 직원들이 오히려 좋아해요. 정산도 계약서대로 정확히 들어오고, 짐 찾으러 오셨다가 아메리카노 사 가시는 분들이 꽤 있어요.</p>
+        <div class="tag-row">
+          <span class="tag">수익 만족</span><span class="tag">운영 편의</span><span class="tag">신규 고객</span>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-top">
+          <div class="review-av">이</div>
+          <div class="review-meta">
+            <h4>이○○ 사장님</h4>
+            <span>경기 수원 편의점 · 파일럿 1기</span>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="review-body">주말마다 수원화성 관광객들이 짐 맡기러 와요. <strong>배송 서비스 덕에 외국인 손님 반응도 좋아요.</strong> 편의점이라 공간이 좀 빡빡한데 담당자가 직접 와서 세팅해줬어요.</p>
+        <div class="tag-row">
+          <span class="tag">관광지 특화</span><span class="tag">외국인 대응 쉬움</span>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-top">
+          <div class="review-av">김</div>
+          <div class="review-meta">
+            <h4>김○○ 사장님</h4>
+            <span>서울 종로 카페 · 파일럿 2기</span>
+          </div>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <p class="review-body">초기 셋업이 생각보다 빨랐어요. 담당자가 와서 30분 만에 마무리했고, <strong>카카오톡으로 문제 생기면 바로 대응</strong>해줘서 신뢰가 갔어요.</p>
+        <div class="tag-row">
+          <span class="tag">빠른 셋업</span><span class="tag">투명한 정산</span><span class="tag">CS 빠름</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARLYBIRD (BOFU) -->
+<section class="earlybird" id="earlybird">
+  <div class="wrap">
+    <div class="eb-inner">
+      <div>
+        <div class="eb-badge-pill reveal"><i class="ti ti-clock-bolt"></i> 선착순 30개 점포 한정</div>
+        <h2 class="eb-title reveal">얼리버드 파트너,<br><em>6개월 무료</em></h2>
+        <p class="eb-desc reveal">입점 수수료 6개월 전액 면제.<br>이후에도 일반 대비 수수료 20% 우대 영구 적용.</p>
+        <div class="price-row reveal">
+          <span class="price-original">월 49,000원</span>
+          <span class="price-current">무료</span>
+          <span class="price-unit">/ 6개월</span>
+        </div>
+        <p class="price-note reveal">얼리버드 종료 후 입점 시 월 49,000원 + 일반 수수료 적용</p>
+        <div class="perks reveal">
+          <div class="perk"><i class="ti ti-check"></i><span>입점 수수료 6개월 무료 (정가 49,000원/월)</span></div>
+          <div class="perk"><i class="ti ti-check"></i><span>전담 매니저 1:1 온보딩 지원</span></div>
+          <div class="perk"><i class="ti ti-check"></i><span>파트너 앱 내 상단 노출 우선 배정</span></div>
+          <div class="perk"><i class="ti ti-check"></i><span>수수료율 영구 20% 우대 (이후 변경 시에도 유지)</span></div>
+          <div class="perk"><i class="ti ti-check"></i><span>홍보물·스티커 패키지 30만원 상당 무상 제공</span></div>
+        </div>
+        <div class="counter-box reveal">
+          <i class="ti ti-flame"></i>
+          <span class="counter-text">현재 남은 얼리버드 자리</span>
+          <span class="counter-num" id="slotNum">23</span>
+          <span class="counter-total">/ 30</span>
+        </div>
+        <a href="https://tally.so/r/[폼ID]?utm_source=jimgo_landing&utm_medium=partner_b2b&utm_campaign=earlybird_phase1&section=earlybird_cta"
+           class="cta-main reveal" target="_blank" rel="noopener">
+          지금 얼리버드 신청하기 →
+        </a>
+        <p class="cta-note reveal">무료 상담 후 결정 가능 · 계약 전 취소 가능</p>
+      </div>
+      <div class="eb-perks-card reveal">
+        <h3>얼리버드 혜택 상세</h3>
+        <div class="eb-perk-item">
+          <div class="eb-perk-num">①</div>
+          <div class="eb-perk-info"><h4>입점 수수료 6개월 무료</h4><p>정가 49,000원/월 × 6개월 = 294,000원 절감</p></div>
+        </div>
+        <div class="eb-perk-item">
+          <div class="eb-perk-num">②</div>
+          <div class="eb-perk-info"><h4>전담 매니저 1:1 온보딩</h4><p>현장 방문 세팅 + 카카오톡 전담 채널 배정</p></div>
+        </div>
+        <div class="eb-perk-item">
+          <div class="eb-perk-num">③</div>
+          <div class="eb-perk-info"><h4>앱 내 상단 노출 우선 배정</h4><p>여행자 탐색 시 얼리버드 파트너 우선 노출 알고리즘 적용</p></div>
+        </div>
+        <div class="eb-perk-item">
+          <div class="eb-perk-num">④</div>
+          <div class="eb-perk-info"><h4>수수료율 영구 20% 우대</h4><p>이후 요금제 변경 시에도 얼리버드 우대율 영구 유지</p></div>
+        </div>
+        <div class="eb-perk-item">
+          <div class="eb-perk-num">⑤</div>
+          <div class="eb-perk-info"><h4>홍보물 패키지 무상 제공</h4><p>매장 부착용 스티커·POP·안내판 (30만원 상당)</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label"><i class="ti ti-help-circle"></i> FAQ</div>
+      <h2 class="section-title">자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text"><i class="ti ti-point-filled"></i>보관 중 분실되면 누가 책임지나요?</span>
+          <i class="ti ti-chevron-down faq-chevron"></i>
+        </div>
+        <p class="faq-a">플랫폼 전용 보험이 적용됩니다. 분실·파손 발생 시 플랫폼이 고객에게 직접 보상하며, 점주님께는 귀책이 없습니다. 보험 약관은 파트너 계약서에 상세히 명시됩니다.</p>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text"><i class="ti ti-point-filled"></i>하루에 얼마나 시간이 걸리나요?</span>
+          <i class="ti ti-chevron-down faq-chevron"></i>
+        </div>
+        <p class="faq-a">파일럿 점주 평균 하루 15분 내외입니다. 예약 알림이 오면 앱에서 확인 후 QR 스캔만 하면 됩니다. 별도 교육 없이 직원 누구나 바로 처리 가능합니다.</p>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text"><i class="ti ti-point-filled"></i>수익 정산은 어떻게 되나요?</span>
+          <i class="ti ti-chevron-down faq-chevron"></i>
+        </div>
+        <p class="faq-a">매월 1회 지정 계좌로 자동 정산됩니다. 앱 내 대시보드에서 건별 수익 내역과 월 합계를 실시간으로 확인하실 수 있습니다.</p>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text"><i class="ti ti-point-filled"></i>가게 크기에 제한이 있나요?</span>
+          <i class="ti ti-chevron-down faq-chevron"></i>
+        </div>
+        <p class="faq-a">전용 보관 공간 최소 0.5평 이상이면 참여 가능합니다. 담당자가 현장을 방문해 최적 배치를 함께 설계해 드립니다.</p>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text"><i class="ti ti-point-filled"></i>얼리버드 종료 후에도 신청 가능한가요?</span>
+          <i class="ti ti-chevron-down faq-chevron"></i>
+        </div>
+        <p class="faq-a">가능합니다. 다만 얼리버드 종료 후에는 입점 수수료 월 49,000원이 적용되며 수수료 우대 혜택이 제공되지 않습니다. 지금 신청하시면 모든 혜택을 받으실 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <div class="wrap">
+    <div class="section-label" style="justify-content:center"><i class="ti ti-message-circle"></i> 무료 상담</div>
+    <h2 class="section-title" style="text-align:center">아직 결정이 어려우신가요?</h2>
+    <p>부담 없이 상담 먼저 받아보세요.<br>30분 안에 내 가게 예상 수익을 알려드립니다.</p>
+    <a href="https://tally.so/r/[폼ID]?utm_source=jimgo_landing&utm_medium=partner_b2b&utm_campaign=earlybird_phase1&section=footer_cta"
+       class="btn-primary" target="_blank" rel="noopener">
+      무료 상담 신청하기 →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>JIMGO</strong> — 짐은 Jimgo, 나는 Go.<br>
+    서울 홍대·명동·이태원 파트너 모집 중 · Phase 1 MVP<br>
+    문의: <a href="mailto:partner@jimgo.kr" style="color:rgba(255,255,255,0.4)">partner@jimgo.kr</a>
+  </p>
+</footer>
+
+<script>
+function toggleFaq(el){el.classList.toggle('open')}
+
+let slots=23;
+setInterval(()=>{
+  const el=document.getElementById('slotNum');
+  if(!el||slots<=18)return;
+  if(Math.random()<0.2){slots--;el.textContent=slots}
+},8000);
+
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*60);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

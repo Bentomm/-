@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>짐보관부터이동까지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --deep:    #08111f;
+  --navy:    #0c1d35;
+  --blue:    #173d6e;
+  --mid:     #1e55a0;
+  --accent:  #3b82f6;
+  --light:   #93c5fd;
+  --gold:    #f5c842;
+  --white:   #f0f6ff;
+  --muted:   rgba(240,246,255,0.55);
+  --border:  rgba(147,197,253,0.18);
+  --sans: 'Noto Sans KR', sans-serif;
+}
+
+body { background: var(--deep); color: var(--white); font-family: var(--sans); line-height: 1.6; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 999;
+  background: rgba(8,17,31,0.95);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 6%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-size: 17px; font-weight: 900; letter-spacing: -0.4px; }
+.logo span { color: var(--light); }
+.nav-btn {
+  font-family: var(--sans); font-size: 13px; font-weight: 700;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 8px; padding: 10px 20px; cursor: pointer;
+}
+.nav-btn:hover { background: var(--light); color: var(--deep); }
+
+/* ── HERO ── */
+.hero {
+  padding: 120px 6% 100px;
+  background: radial-gradient(ellipse 80% 60% at 70% 30%, rgba(30,85,160,0.25) 0%, transparent 70%),
+              var(--deep);
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(59,130,246,0.12); border: 1px solid rgba(147,197,253,0.3);
+  border-radius: 100px; padding: 5px 16px;
+  font-size: 12px; font-weight: 500; color: var(--light); margin-bottom: 28px;
+}
+.dot-green { width: 7px; height: 7px; background: #4ade80; border-radius: 50%; }
+h1 { font-size: clamp(36px,5.5vw,60px); font-weight: 900; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 20px; }
+h1 .hl { color: var(--light); }
+.hero-desc { font-size: 17px; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 40px; }
+.hero-desc strong { color: var(--white); font-weight: 700; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-free {
+  font-family: var(--sans); font-size: 15px; font-weight: 900;
+  background: var(--gold); color: var(--deep);
+  border: none; border-radius: 10px; padding: 16px 32px; cursor: pointer;
+  display: flex; align-items: center; gap: 10px;
+}
+.btn-free:hover { box-shadow: 0 8px 24px rgba(245,200,66,0.3); }
+.free-chip { background: var(--deep); color: var(--gold); border-radius: 5px; padding: 2px 8px; font-size: 11px; font-weight: 900; }
+.btn-outline {
+  font-family: var(--sans); font-size: 15px; font-weight: 700;
+  background: transparent; color: var(--white);
+  border: 1px solid var(--border); border-radius: 10px; padding: 16px 32px; cursor: pointer;
+}
+.btn-outline:hover { border-color: var(--light); color: var(--light); }
+
+/* ── TRUST ── */
+.trust {
+  background: var(--navy); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 22px 6%;
+  display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;
+}
+.trust-item { display: flex; align-items: baseline; gap: 8px; }
+.trust-num { font-size: 24px; font-weight: 900; color: var(--white); }
+.trust-label { font-size: 13px; color: var(--muted); }
+
+/* ── SECTION BASE ── */
+section { padding: 90px 6%; }
+.sec-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px; }
+h2 { font-size: clamp(26px,3.5vw,40px); font-weight: 900; line-height: 1.2; letter-spacing: -1px; margin-bottom: 14px; }
+.sec-desc { font-size: 15px; color: var(--muted); max-width: 500px; line-height: 1.75; margin-bottom: 52px; }
+
+/* ── PAIN ── */
+.pain-bg { background: var(--deep); }
+.pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 16px; }
+.pain-card { background: var(--navy); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+.pain-icon { font-size: 28px; margin-bottom: 16px; }
+.pain-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.pain-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* ── HOW ── */
+.how-bg { background: var(--navy); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 2px; }
+.step { padding: 32px 24px; position: relative; }
+.step:not(:last-child)::after {
+  content: '→';
+  position: absolute; right: -10px; top: 42px;
+  font-size: 20px; color: rgba(147,197,253,0.3);
+}
+.step-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--accent); margin-bottom: 12px; }
+.step-ico { font-size: 28px; margin-bottom: 14px; }
+.step h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.step p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ── MOFU ── */
+.mofu-bg { background: var(--deep); }
+.offer-card {
+  background: var(--navy);
+  border: 1px solid rgba(147,197,253,0.25);
+  border-radius: 20px; padding: 52px;
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center;
+}
+.offer-badge {
+  display: inline-block; background: var(--gold); color: var(--deep);
+  font-size: 11px; font-weight: 900; letter-spacing: 1px;
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
+}
+.offer-card h2 { font-size: clamp(24px,3vw,36px); margin-bottom: 14px; }
+.offer-card > div > p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+.check-list { list-style: none; }
+.check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; margin-bottom: 10px; color: rgba(240,246,255,0.85); }
+.check-list li::before { content: '✓'; color: #4ade80; font-weight: 900; flex-shrink: 0; }
+.offer-right { text-align: center; }
+.big-free { font-size: 80px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 6px; letter-spacing: -4px; }
+.big-free-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+.btn-gold {
+  font-family: var(--sans); font-size: 16px; font-weight: 900;
+  background: var(--gold); color: var(--deep);
+  border: none; border-radius: 12px; padding: 18px 36px; width: 100%; cursor: pointer;
+}
+.btn-gold:hover { box-shadow: 0 10px 30px rgba(245,200,66,0.3); }
+.gold-note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+/* ── BOFU ── */
+.bofu-bg { background: var(--navy); }
+.bofu-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+.bofu-info h2 { margin-bottom: 14px; }
+.bofu-info > p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
+.reward-list { display: flex; flex-direction: column; gap: 20px; }
+.r-step { display: flex; gap: 16px; align-items: flex-start; }
+.r-num {
+  width: 34px; height: 34px; flex-shrink: 0;
+  background: rgba(59,130,246,0.12); border: 1px solid rgba(147,197,253,0.3);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--light);
+}
+.r-text h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.r-text p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+.points-card { background: var(--deep); border: 1px solid var(--border); border-radius: 18px; padding: 32px; }
+.pc-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.pc-amount { font-size: 52px; font-weight: 900; color: var(--gold); line-height: 1; letter-spacing: -2px; }
+.pc-unit { font-size: 13px; color: var(--muted); margin-bottom: 24px; margin-top: 4px; }
+.pc-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 20px; }
+.pc-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(147,197,253,0.06); }
+.pc-row-label { font-size: 13px; color: var(--muted); }
+.pc-row-val { font-size: 13px; font-weight: 700; }
+.pos { color: #4ade80; }
+.pc-note {
+  margin-top: 18px; background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(147,197,253,0.2); border-radius: 10px;
+  padding: 14px; font-size: 13px; color: var(--muted); text-align: center; line-height: 1.6;
+}
+.pc-note strong { color: var(--light); }
+
+/* ── REVIEWS ── */
+.review-bg { background: var(--deep); }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 16px; }
+.review-card { background: var(--navy); border: 1px solid var(--border); border-radius: 14px; padding: 26px; }
+.stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 12px; }
+.review-card p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 18px; }
+.reviewer { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 34px; height: 34px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--light); flex-shrink: 0; }
+.rv-name { font-size: 13px; font-weight: 700; }
+.rv-meta { font-size: 12px; color: var(--muted); }
+
+/* ── FINAL CTA ── */
+.cta-bg { background: var(--navy); border-top: 1px solid var(--border); text-align: center; padding: 110px 6%; }
+.cta-bg h2 { max-width: 500px; margin: 0 auto 14px; }
+.cta-bg > p { font-size: 16px; color: var(--muted); max-width: 420px; margin: 0 auto 44px; line-height: 1.75; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--deep); border-top: 1px solid var(--border);
+  padding: 28px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.foot-logo { font-size: 15px; font-weight: 900; }
+.foot-logo span { color: var(--light); }
+footer p { font-size: 12px; color: var(--muted); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .offer-card { grid-template-columns: 1fr; padding: 32px 24px; }
+  .bofu-inner { grid-template-columns: 1fr; }
+  .step:not(:last-child)::after { display: none; }
+  .trust { gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">짐보관<span>부터이동까지</span></div>
+  <button class="nav-btn">첫 이용 무료 시작</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge"><span class="dot-green"></span>서울 파일럿 운영 중</div>
+  <h1>짐은 맡기고<br><span class="hl">여행만</span> 하세요</h1>
+  <p class="hero-desc">
+    무거운 짐 때문에 여행이 불편했나요?<br>
+    근처 <strong>제휴 카페에 짐을 맡기고</strong>, 픽업까지 한 번에.<br>
+    여행자의 하루를 가볍게 만들어드립니다.
+  </p>
+  <div class="hero-btns">
+    <button class="btn-free"><span class="free-chip">FREE</span>첫 체험 무료로 시작</button>
+    <button class="btn-outline">서비스 둘러보기</button>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-item"><span class="trust-num">200+</span><span class="trust-label">제휴 카페 거점</span></div>
+  <div class="trust-item"><span class="trust-num">4.9★</span><span class="trust-label">이용자 만족도</span></div>
+  <div class="trust-item"><span class="trust-num">30분</span><span class="trust-label">이내 픽업 도착</span></div>
+  <div class="trust-item"><span class="trust-num">0원</span><span class="trust-label">첫 이용 비용</span></div>
+</div>
+
+<!-- PAIN -->
+<section class="pain-bg">
+  <p class="sec-label">Problem</p>
+  <h2>여행자라면 누구나<br>겪었을 불편함</h2>
+  <p class="sec-desc">숙소 체크아웃 후 무거운 짐을 끌고 다녀본 적 있나요? 짐보관부터이동까지가 해결합니다.</p>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">🧳</div>
+      <h3>체크아웃 후 짐 보관 난감</h3>
+      <p>호텔 로비에 맡겨도 불안하고, 코인로커는 찾기 어렵고. 결국 짐 끌고 관광하게 됩니다.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🚶</div>
+      <h3>무거운 짐 + 대중교통</h3>
+      <p>여행 마지막 날, 캐리어를 끌고 지하철·버스를 타는 게 가장 힘든 구간입니다.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">⏰</div>
+      <h3>픽업 시간·장소 불일치</h3>
+      <p>기존 배달대행은 여행자의 이동 동선에 맞추기 어렵고 예약도 복잡합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how-bg">
+  <p class="sec-label" style="text-align:center">How it works</p>
+  <h2 style="text-align:center">딱 세 단계</h2>
+  <p class="sec-desc" style="text-align:center; margin-left:auto; margin-right:auto">복잡한 예약 없이, 앱 하나로 완결됩니다.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">STEP 01</div>
+      <div class="step-ico">📍</div>
+      <h3>근처 거점 카페 선택</h3>
+      <p>지도에서 내 위치 근처 제휴 카페를 선택. 영업시간·잔여 공간을 실시간 확인.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 02</div>
+      <div class="step-ico">☕</div>
+      <h3>카페에 짐 맡기기</h3>
+      <p>QR 체크인으로 30초 완료. 카페에서 음료 즐기는 동안 짐은 안전하게 보관.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 03</div>
+      <div class="step-ico">🛵</div>
+      <h3>목적지로 픽업 배송</h3>
+      <p>원하는 시간·장소로 픽업 요청. 전담 배송팀이 30분 내 도착합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOFU -->
+<section class="mofu-bg">
+  <p class="sec-label">Limited Offer · MOFU</p>
+  <h2>첫 체험, 완전 무료</h2>
+  <p class="sec-desc">직접 써보고 판단하세요. 카드 등록도, 복잡한 가입도 필요 없습니다.</p>
+  <div class="offer-card">
+    <div>
+      <span class="offer-badge">첫 이용 무료 이벤트</span>
+      <h2>보관 + 픽업<br>첫 1회 전액 무료</h2>
+      <p>서비스가 좋은지 직접 경험하고 결정하세요. 첫 이용은 보관료 + 기본 픽업비 전액 지원합니다.</p>
+      <ul class="check-list">
+        <li>카페 보관 (최대 24시간) 무료</li>
+        <li>기본 픽업 배송 1회 무료</li>
+        <li>짐 분실 보상 보험 적용</li>
+        <li>전담 고객센터 실시간 지원</li>
+      </ul>
+    </div>
+    <div class="offer-right">
+      <div class="big-free">FREE</div>
+      <p class="big-free-sub">첫 1회 보관 + 픽업 전액 지원</p>
+      <button class="btn-gold">지금 무료 체험 시작하기</button>
+      <p class="gold-note">신용카드 불필요 · 언제든 취소 가능</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOFU -->
+<section class="bofu-bg">
+  <p class="sec-label">Reward Program · BOFU</p>
+  <div class="bofu-inner">
+    <div class="bofu-info">
+      <h2>후기 쓰면<br>포인트로 돌아와요</h2>
+      <p>솔직한 이용 후기를 남겨주시면 포인트를 드립니다. 적립 포인트는 다음 이용 시 현금처럼 사용 가능합니다.</p>
+      <div class="reward-list">
+        <div class="r-step">
+          <div class="r-num">1</div>
+          <div class="r-text">
+            <h4>이용 완료 후 후기 작성</h4>
+            <p>앱 내 후기 탭에서 별점 + 한 줄 이상 작성 시 즉시 지급</p>
+          </div>
+        </div>
+        <div class="r-step">
+          <div class="r-num">2</div>
+          <div class="r-text">
+            <h4>사진 첨부 시 추가 포인트</h4>
+            <p>실제 이용 사진 첨부 시 보너스 포인트 추가 지급</p>
+          </div>
+        </div>
+        <div class="r-step">
+          <div class="r-num">3</div>
+          <div class="r-text">
+            <h4>포인트로 다음 이용 할인</h4>
+            <p>1포인트 = 1원, 최소 500포인트부터 사용 가능</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="points-card">
+      <p class="pc-label">후기 1건 기준 적립 포인트</p>
+      <div class="pc-amount">+800P</div>
+      <p class="pc-unit">텍스트 후기 기본</p>
+      <hr class="pc-divider">
+      <div class="pc-row"><span class="pc-row-label">텍스트 후기 작성</span><span class="pc-row-val pos">+500P</span></div>
+      <div class="pc-row"><span class="pc-row-label">사진 1장 이상 첨부</span><span class="pc-row-val pos">+200P</span></div>
+      <div class="pc-row"><span class="pc-row-label">5점 만점 달성 보너스</span><span class="pc-row-val pos">+100P</span></div>
+      <div class="pc-note">적립 포인트는 <strong>보관료·픽업비 할인</strong>에 사용 가능<br>미사용 포인트 자동 소멸 없음</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="review-bg">
+  <p class="sec-label" style="text-align:center">Real Reviews</p>
+  <h2 style="text-align:center">이용자 후기</h2>
+  <p class="sec-desc" style="text-align:center; margin-left:auto; margin-right:auto; margin-bottom:44px">실제 무료 체험 후 남겨주신 생각들</p>
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>체크아웃하고 명동 쇼핑하려는데 짐 때문에 망설였어요. 카페에 맡기고 손 가볍게 다녔고, 픽업도 숙소 앞으로 해줘서 너무 편했어요.</p>
+      <div class="reviewer"><div class="avatar">김</div><div><p class="rv-name">김지연</p><p class="rv-meta">서울 2박 3일 여행 · 30대</p></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>외국인 친구랑 왔는데 QR 체크인이 진짜 쉬웠어요. 영어 설명도 있고 카페 분위기도 좋아서 짐 맡기고 커피 한 잔 했습니다.</p>
+      <div class="reviewer"><div class="avatar">박</div><div><p class="rv-name">박서준</p><p class="rv-meta">한강 당일치기 · 20대</p></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p>처음엔 반신반의했는데 배송기사님이 정확히 약속 시간에 오셔서 놀랐어요. 무료 체험 후 바로 다음 이용 예약했습니다.</p>
+      <div class="reviewer"><div class="avatar">이</div><div><p class="rv-name">이수민</p><p class="rv-meta">인천공항 이동 · 40대</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-bg">
+  <p class="sec-label">Get Started</p>
+  <h2>오늘 가볍게<br>여행 시작해요</h2>
+  <p>첫 체험은 무료입니다. 후기를 남기시면 다음번엔 포인트 할인까지.</p>
+  <div class="cta-btns">
+    <button class="btn-free"><span class="free-chip">FREE</span>첫 체험 무료 시작</button>
+    <button class="btn-outline">거점 카페 지도 보기</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">짐보관<span>부터이동까지</span></div>
+  <p>© 2025 짐보관부터이동까지 · 서울 파일럿 운영 중</p>
+  <p>이용약관 · 개인정보처리방침</p>
+</footer>
+
+</body>
+</html>
